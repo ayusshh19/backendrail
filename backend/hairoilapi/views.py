@@ -132,10 +132,10 @@ def returnpayment(request):
         return Response({'msg':'Pay return payment'},status=status.HTTP_200_OK)
     
     if request.method=='POST':
-        username=request.data['username']
-        userobj=Userregister.objects.filter(username=username)
-        product=Productpurchase.objects.filter(userid=userobj).update(sellerstatus=True)
-        productserializer=Productpurchaseserializer(product,many=True)
+        prodid=request.data['prodid']
+        product=Productpurchase.objects.filter(id=prodid).update(sellerstatus=True)
+        prodobj=Productpurchase.objects.filter(id=prodid)
+        productserializer=Productpurchaseserializer(prodobj,many=True)
         return Response({'msg':productserializer.data},status=status.HTTP_200_OK)
     
 @api_view(['POST'])
