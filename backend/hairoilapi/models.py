@@ -14,7 +14,7 @@ class Userregister(models.Model):
     issseller=models.BooleanField(default=False)
     isadmin=models.BooleanField(default=False)
     unique_id = models.UUIDField(default=generate_uuid, editable=False, unique=True)
-    reference=models.CharField(default='',max_length=100)
+    reference=models.CharField(default='',max_length=100,blank=True)
     
 class Usercoupon(models.Model):
     userid=models.ForeignKey(Userregister,on_delete=models.CASCADE)
