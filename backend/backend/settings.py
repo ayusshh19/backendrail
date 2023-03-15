@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
-CSRF_TRUSTED_ORIGINS = ['https://backendrail-production.up.railway.app/']
 # Application definition
 
 INSTALLED_APPS = [
@@ -59,7 +58,6 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'https://backendrail-production.up.railway.app/'
 ]
 ROOT_URLCONF = 'backend.urls'
 
