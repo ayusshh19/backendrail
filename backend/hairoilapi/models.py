@@ -14,6 +14,7 @@ class Userregister(models.Model):
     issseller=models.BooleanField(default=False)
     isadmin=models.BooleanField(default=False)
     unique_id = models.UUIDField(default=generate_uuid, editable=False, unique=True)
+    reference=models.CharField(default='',max_length=100)
     
 class Usercoupon(models.Model):
     userid=models.ForeignKey(Userregister,on_delete=models.CASCADE)
@@ -23,7 +24,7 @@ class Productpurchase(models.Model):
     userid=models.ForeignKey(Userregister,on_delete=models.CASCADE)
     productprice=models.CharField(max_length=100)
     productname=models.CharField(max_length=100)
-    purchasetime=models.TimeField(auto_now_add=True)
+    purchasetime=models.DateTimeField(auto_now_add=True)
     paymentcompletion=models.BooleanField(default=False)
     sellerstatus=models.BooleanField(default=False)
     
