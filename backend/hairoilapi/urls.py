@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import home,registerUser,Purchase,Customeraddress,coupon,adminpanel,loginuser,start_payment,handle_payment_success,purchasecompletion,returnpayment
+from .views import home,registerUser,Purchase,Customeraddress,coupon,adminpanel,loginuser,start_payment,handle_payment_success,purchasecompletion,returnpayment,returnpayadd
 urlpatterns = [
     path('', home,name='home'),
     path('register/', registerUser,name='register'),
@@ -11,6 +11,8 @@ urlpatterns = [
     path('pay/', start_payment, name="payment"),
     path('completepay/', purchasecompletion, name="payment"),
     path('returnpay/', returnpayment, name="payment"),
-    path('payment/success/', handle_payment_success, name="payment_success")
+    path('payment/success/', handle_payment_success, name="payment_success"),
+    path('getpaydetails/', returnpayadd, name="payment_success"),
+    
     
 ]
