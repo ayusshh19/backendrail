@@ -218,5 +218,5 @@ def returnpayadd(request):
               addresserializer=Deliveryserializer(getaddress,many=True)
               return Response({'productlist':productserializer.data,'addresslist':addresserializer.data},status=status.HTTP_200_OK)
             except:
-              return Response({'msg':'something went wrong!!!'},status=status.HTTP_200_OK)
+              return Response({'msg':'serializer error'},status=status.HTTP_200_OK)
     return Response({'msg':'something went wrong!!!'},status=status.HTTP_200_OK)
