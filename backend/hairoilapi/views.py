@@ -212,10 +212,10 @@ def handle_payment_success(request):
 def returnpayadd(request):
     if request.method=='GET':
             try:
-              cartproducts=Productpurchase.objects.latest()
-              getaddress=Delivery.objects.latest()
-              productserializer=Productpurchaseserializer(cartproducts,many=True)
-              addresserializer=Deliveryserializer(getaddress,many=True)
+              cartproducts=Productpurchase.objects.last()
+              getaddress=Delivery.objects.last()
+              productserializer=Productpurchaseserializer(cartproducts)
+              addresserializer=Deliveryserializer(getaddress)
               return Response({'productlist':productserializer.data,'addresslist':addresserializer.data},status=status.HTTP_200_OK)
             except:
               return Response({'msg':'serializer error'},status=status.HTTP_200_OK)
